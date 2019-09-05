@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import asyncComponent from "asyncComponent";
+import ProtectedRoute from "ProtectedRoute";
 
 import Clock from "components/Clock";
 const Header = asyncComponent(() => import("components/Header"));
@@ -32,8 +33,8 @@ class Routes extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/token/:symbol" component={TokenDetail} />
           <Route path="/login" exact component={Login} />
-          <Route path="/wallet" exact component={Wallet} />
-          <Route path="/create" exact component={TokenCreate} />
+          <ProtectedRoute path="/wallet" exact component={Wallet} />
+          <ProtectedRoute path="/create" exact component={TokenCreate} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/transactions" exact component={Transactions} />
         </Switch>

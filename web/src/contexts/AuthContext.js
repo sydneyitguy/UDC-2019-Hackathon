@@ -155,7 +155,9 @@ class AuthProvider extends Component {
 
   getWallet = async () => {
     const { fetchingWallet, user } = this.state;
-    if (fetchingWallet || !user) return;
+    if (fetchingWallet || !user) {
+      return;
+    }
     console.log("fetching wallet", fetchingWallet);
 
     try {
